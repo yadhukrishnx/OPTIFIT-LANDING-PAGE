@@ -657,13 +657,14 @@ section {
 }
 
 .about .content {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .about .content h3 {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 30px;
   color: #263d4d;
+  text-align: center;
 }
 
 .about .content ul {
@@ -887,6 +888,7 @@ section {
 --------------------------------------------------------------*/
 .features .nav-tabs {
   border: 0;
+  
 }
 
 .features .nav-link {
@@ -946,11 +948,14 @@ section {
 .features .tab-pane h3 {
   font-weight: 600;
   font-size: 26px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+
 }
 
 .features .tab-pane ul {
   list-style: none;
-  padding: 0;
+  padding: 12px;  
 }
 
 .features .tab-pane ul li {
