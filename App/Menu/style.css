@@ -1,0 +1,12 @@
+body {
+    padding-top: 56px; /* Adjusted for the fixed navbar height */
+}
+
+.container-fluid {
+    
+}
+
+#createWorkout, #myWorkouts {
+    max-width: 600px;
+    margin: 0 auto;
+}

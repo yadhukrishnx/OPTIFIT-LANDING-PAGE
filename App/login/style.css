@@ -47,7 +47,7 @@ body{
 }
 
 .container button{
-    background-color: orange;
+    background-color: rgb(255, 77, 0);
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -62,7 +62,8 @@ body{
 
 .container button.hidden{
     background-color: transparent;
-    border-color: #fff;
+    border-color: #000000;
+    color: #000000;
 }
 
 .container form{
@@ -108,6 +109,7 @@ body{
     width: 50%;
     opacity: 0;
     z-index: 1;
+    
 }
 
 .container.active .sign-up{
@@ -141,6 +143,7 @@ body{
     margin: 0 3px;
     width: 40px;
     height: 40px;
+
 }
 
 .toggle-container{
@@ -153,6 +156,7 @@ body{
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
     z-index: 1000;
+    
 }
 
 .container.active .toggle-container{
@@ -161,11 +165,12 @@ body{
 }
 
 .toggle{
-    background-color: orange;
+    background-color: rgb(187, 166, 127);
     height: 100%;
-    background: linear-gradient(to right, #f8a25c, #e1ec3c);
-    color: #fff;
+    background:#9494942d;
+    color: #000000;
     position: relative;
+    
     left: -100%;
     height: 100%;
     width: 200%;
@@ -178,6 +183,7 @@ body{
 }
 
 .toggle-panel{
+    margin-top: 30px;
     position: absolute;
     width: 50%;
     height: 100%;

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>OptiFit AI</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">OptiFit AI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#profileModal">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#myWorkoutsModal">My Workouts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#sharingModal">Sharing</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="modal fade" id="sharingModal" tabindex="-1" role="dialog" aria-labelledby="sharingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sharingModalLabel">Share Workouts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Share your workouts on:</p>
+                <div class="text-center">
+                    <!-- WhatsApp Share Button -->
+                    <a id="whatsappShareBtn" href="#" class="btn btn-success" target="_blank">Share on WhatsApp</a>
+                </div>
+                <hr>
+                <p>Or add your workouts as a message:</p>
+                <textarea id="customMessage" class="form-control" rows="3" placeholder="Type your message here..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileModalLabel">User Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Demo User Details -->
+                <div class="text-center">
+                    <img src="\assets\img\team\team-2.jpg" alt="Demo User" class="img-fluid rounded-circle mb-3" style="max-width: 100px;">
+                    <h4>Demo User</h4>
+                    <p>Email: demo@example.com</p>
+                    <p>Age: 25</p>
+                    <p>Location: City, Country</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sharing Modal -->
+<div class="modal fade" id="sharingModal" tabindex="-1" role="dialog" aria-labelledby="sharingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sharingModalLabel">Share Workout Plan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6 id="workoutPlanTitle"></h6>
+                <p id="workoutPlanDetails"></p>
+                <button type="button" class="btn btn-success" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- My Workouts Modal -->
+<div class="modal fade" id="myWorkoutsModal" tabindex="-1" role="dialog" aria-labelledby="myWorkoutsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myWorkoutsModalLabel">My Workouts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6>Added Workouts:</h6>
+                <ul id="addedWorkoutsList">
+                    <!-- Added workouts will be dynamically added here -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Content -->
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Welcome to OptiFit AI</h2>
+            <p>This is the main content of your fitness app.</p>
+
+<!-- Create Workout Plan Section -->
+<div id="createWorkoutPlan" class="my-4">
+    <h3>Create a New Workout Plan</h3>
+    <form id="workoutPlanForm">
+        <div class="form-group">
+            <label for="workoutPlanName">Workout Plan Name</label>
+            <input type="text" class="form-control" id="workoutPlanName" placeholder="Enter workout plan name">
+        </div>
+        <div class="form-group">
+            <label>Select Workouts</label>
+            <div id="workoutSelection">
+                <!-- Add workout options here with checkboxes and images -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Pushup" id="checkboxPushup">
+                    <label class="form-check-label" for="checkboxPushup">
+                        <img src="pushup.jpg" alt="Pushup" class="workout-image"> Pushup
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Bicep Curls" id="checkboxBicepCurls">
+                    <label class="form-check-label" for="checkboxBicepCurls">
+                        <img src="bicep_curls.jpg" alt="Bicep Curls" class="workout-image"> Bicep Curls
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Shoulder Press" id="checkboxShoulderPress">
+                    <label class="form-check-label" for="checkboxShoulderPress">
+                        <img src="shoulder_press.jpg" alt="Shoulder Press" class="workout-image"> Shoulder Press
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Jumping Jacks" id="checkboxJumpingJacks">
+                    <label class="form-check-label" for="checkboxJumpingJacks">
+                        <img src="jumping_jacks.jpg" alt="Jumping Jacks" class="workout-image"> Jumping Jacks
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Plank" id="checkboxPlank">
+                    <label class="form-check-label" for="checkboxPlank">
+                        <img src="plank.jpg" alt="Plank" class="workout-image"> Plank
+                    </label>
+                </div>
+                <!-- Add more workout options as needed -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Squats" id="checkboxSquats">
+                    <label class="form-check-label" for="checkboxSquats">
+                        <img src="squats.jpg" alt="Squats" class="workout-image"> Squats
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Lunges" id="checkboxLunges">
+                    <label class="form-check-label" for="checkboxLunges">
+                        <img src="lunges.jpg" alt="Lunges" class="workout-image"> Lunges
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Deadlifts" id="checkboxDeadlifts">
+                    <label class="form-check-label" for="checkboxDeadlifts">
+                        <img src="deadlifts.jpg" alt="Deadlifts" class="workout-image"> Deadlifts
+                    </label>
+                </div>
+                <!-- Add more workout options as needed -->
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" onclick="addSelectedWorkouts()">Add Selected Workouts</button>
+        </div>
+        <div id="selectedWorkoutsList" class="form-group">
+            <!-- Selected workouts will be dynamically added here -->
+        </div>
+        <button type="button" class="btn btn-primary" onclick="addWorkoutPlan()">Create Workout Plan</button>
+    </form>
+</div>
+
+
+
+<!-- My Workouts Section -->
+<div id="myWorkouts" class="my-4">
+    <h3>My Workouts</h3>
+    <ul id="workoutList" class="list-group">
+        <!-- Workout items will be dynamically added here -->
+    </ul>
+</div>
+
+<!-- Workout Details Modal -->
+<div class="modal fade" id="workoutDetailsModal" tabindex="-1" role="dialog" aria-labelledby="workoutDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="workoutDetailsModalLabel">Workout Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4 id="workoutDetailsName"></h4>
+                <p id="workoutDetailsExercises"></p>
+                <p id="workoutDetailsReps"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Send Workout Modal -->
+<div class="modal fade" id="sendWorkoutModal" tabindex="-1" role="dialog" aria-labelledby="sendWorkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sendWorkoutModalLabel">Send Workout to Friends</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Share your workout with friends:</p>
+                <!-- Add friend selection and send button here -->
+                <!-- For simplicity, assuming you have a list of friends -->
+                <select class="form-control mb-3" id="friendSelection">
+                    <option>Friend 1</option>
+                    <option>Friend 2</option>
+                    <option>Friend 3</option>
+                    <!-- Add more friends as needed -->
+                </select>
+                <button type="button" class="btn btn-success" onclick="sendWorkoutToFriend()">Send Workout</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
