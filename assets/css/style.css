@@ -9,6 +9,9 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+#technology-stack > li {
+  margin-bottom: 5px;
+}
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;

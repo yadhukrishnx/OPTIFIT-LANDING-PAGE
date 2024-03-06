@@ -60,8 +60,8 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
 
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="https://github.com/optifitai/OPTIFITAI"><span >GITHUB</span><i class=" bi-arrow-up-right " ></i></a></li>
-          <li ><a href="http://127.0.0.1:8000/" id="https://github.com/optifitai/OPTIFITAI" ><span >Try OptiFIT</span><i class=" bi-arrow-up-right " ></i></a></li>
+          <li><a class="nav-link scrollto" href="https://github.com/optifitai/OPTIFITAI" onclick=""><span >GITHUB</span><i class=" bi-arrow-up-right " ></i></a></li>
+          <li ><a href="http://127.0.0.1:8000/" id="https://github.com/optifitai/OPTIFITAI" onclick="return hoststatus()" target="_blank"><span >Try OptiFIT</span><i class=" bi-arrow-up-right " ></i></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -72,12 +72,12 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="fade-up" data-aos-delay="190">
-      <h1>OPTIMISE . FITNESS . AI</h1>
+      <h1>OPTIMAL . FITNESS . AI</h1>
       <h2> Plan your fitness, Launch your potential, Grow stronger with - OptiFit AI</h2>
       
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="http://127.0.0.1:8000/" class=" btn-watch-video"><span >Try OptiFIT</span><i class=" bi-arrow-up-right " ></i></a>
+        <a href="http://127.0.0.1:8000/" class=" btn-watch-video" onclick="return hoststatus()" target="_blank"><span >Try OptiFIT</span><i class=" bi-arrow-up-right " ></i></a>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -90,8 +90,19 @@
 
         <div class="row">
 
-          <div class="col-lg-6 video-box align-self-baseline p-3" data-aos="zoom-in" data-aos-delay="100">
-            <img src="assets/img/tempaboutsec.gif" class="img-fluid" alt="" width="600px" height="500px">
+          <div class="col-lg-6 video-box align-self-baseline p-3" data-aos="zoom-in" >
+            
+            <video src="assets/img/video.mp4" class="img-fluid workoutvideo" alt="Browser doesnot support video" width="600px" height="500px" autoplay controls="false" muted style="border: 5px solid white;"></video>
+
+            <style>
+              @media (min-width: 768px) {
+    .workoutvideo { 
+        margin-left: 60px;
+        margin-top: 30px;
+    }
+}
+
+            </style>
             
           </div>
 
@@ -353,73 +364,77 @@
     </section><!-- End Team Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up"">
-
-    <div class=" section-title">
-        <h2>Contact</h2>
-        <p>Contact Us</p>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-6">
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="info-box">
-                <i class="bx bx-map"></i>
-                <h3>Our Address</h3>
-                <p>Kannur , Kerala , India</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="info-box mt-4">
-                <i class="bx bx-envelope"></i>
-                <h3>Email Us</h3>
-                <p>optifitai@gmail.com<br>yadhukrishnabca@gmail.com</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="info-box mt-4">
-                <i class="bx bx-phone-call"></i>
-                <h3>Call Us</h3>
-                <p>+91 000000000<br>+91 000000000</p>
-              </div>
-            </div>
-          </div>  
-
+    <section id="contact" class="contact-technology">
+      <div class="container" data-aos="fade-up">
+    
+        <div class="section-title">
+          <h2>Contact & Technology Stack</h2>
+          <p>Contact Us & Explore Our Technology Stack</p>
         </div>
-
-        <div class="col-lg-6 mt-4 mt-lg-0">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+    
+        <div class="row">
+    
+          <div class="col-lg-6">
+    
             <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              <div class="col-md-12">
+                <div class="info-box">
+                  <span>Email Us</span>
+                  <i class="bx bx-envelope"></i>
+                  <p>optifitai@gmail.com</p>
+                </div>
               </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
             </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
+    
+          </div>
+    
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <h3>Technology Stack</h3>
+            <ul class="list-unstyled" id="technology-stack" >
+              <li onclick="toggleList('backend')" >Backend   
+                <ul id="backend-list">
+                  <li> Django</li>
+                  <li> Python</li>
+                  <li> MySQL</li>
+                </ul>
+              </li>
+              <li onclick="toggleList('frontend')">Frontend
+                <ul id="frontend-list" style="display: none;">
+                  <li> HTML</li>
+                  <li> CSS</li>
+                  <li> JavaScript</li>
+                </ul>
+              </li>
+              <li onclick="toggleList('advanced')">Advanced Technologies
+                <ul id="advanced-list" style="display: none;">
+                  <li> BlazePose Model</li>
+                  <li> MediaPipe</li>
+                  <li> OpenCV</li>
+                  <li> Pygame</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+    
         </div>
-
+    
       </div>
-
-      </div>
-    </section><!-- End Contact Section -->
+    </section>
+   
+    
+    <script>  
+      function toggleList(category) {
+        var lists = document.querySelectorAll('#technology-stack ul');
+        for (var i = 0; i < lists.length; i++) {
+          if (lists[i].id === category + '-list') {
+            lists[i].style.display = 'block';
+          } else {
+            lists[i].style.display = 'none';
+          }
+        }
+      }
+    </script>
+    <!-- End Contact Section -->
 
   </main><!-- End #main -->
 

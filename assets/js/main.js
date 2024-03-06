@@ -273,3 +273,12 @@
   new PureCounter();
 
 })()
+
+function formstatus(){
+  alert("FORM IS OUT OF SERVICE")
+}
+
+function hoststatus() {
+  var confirmed = confirm("This can only run in the localhost network. Are you sure you want to continue?");
+  return confirmed;
+}
